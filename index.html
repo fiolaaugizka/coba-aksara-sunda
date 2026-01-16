@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aksara Sunda</title>
+
+  <!-- FONT ANAK -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="logo">Aksara Sunda</div>
+
+  <nav class="desktop-nav">
+    <a href="#" data-scroll="cover">Beranda</a>
+    <a href="#" data-scroll="cards">Kartu</a>
+    <a href="#" data-scroll="quiz">Quiz</a>
+    <button id="playBtnHeader" type="button">Mainkan Sekarang</button>
+  </nav>
+
+  <div class="menu-toggle" id="menuToggle">☰</div>
+</header>
+
+<!-- ============== MOBILE NAV ============== -->
+<nav class="mobile-nav hidden" id="mobileNav">
+  <a href="#" data-scroll="cover">Beranda</a>
+  <a href="#" data-scroll="cards">Kartu</a>
+  <a href="#" data-scroll="quiz">Quiz</a>
+  <button class="mobile-play-btn" data-scroll="cards">Mainkan Sekarang</button>
+</nav>
+
+<!-- ================= COVER ================= -->
+<section id="cover" class="page cover-page section-bg bg-cover">
+
+  <button id="startBtn">🎮 Mainkan Sekarang</button>
+
+</section>
+
+<!-- ================= KARTU ================= -->
+<section id="cards" class="page section-bg bg-cards">
+
+  <h2 class="game-title">🎴 Kartu Aksara Sunda</h2>
+
+  <div class="content">
+
+    <!-- FLIP CARD -->
+    <div class="card-wrapper" id="flipTarget">
+      <div class="flip-card" id="flipCard">
+        <div class="flip-inner">
+
+          <div class="flip-front">
+            <img id="frontImg">
+            <span class="label" id="frontLabel"></span>
+          </div>
+
+          <div class="flip-back">
+            <img id="backImg">
+            <span class="label" id="backLabel"></span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTAINER KARTU LAIN -->
+    <!-- HURUF VOKAL -->
+<section class="aksara-page vokal-page">
+  <h3 class="card-section-title">🔤 Huruf Vokal</h3>
+  <div id="vokalContainer" class="cards-container"></div>
+</section>
+
+<!-- HURUF KONSONAN -->
+<section class="aksara-page konsonan-page">
+  <h3 class="card-section-title">🔠 Huruf Konsonan</h3>
+  <div id="konsonanContainer" class="cards-container"></div>
+</section>
+
+<!-- AKSARA RARANGKEN -->
+<section class="aksara-page rarangken-page">
+  <h3 class="card-section-title">✨ Aksara Rarangken</h3>
+  <div id="rarangkenContainer" class="cards-container"></div>
+</section>
+</section>
+
+<!-- ================= QUIZ ================= -->
+<section id="quiz" class="page quiz-page section-bg bg-quiz">
+  <h2 class="game-title">🧠 Tebak Huruf Aksara</h2>
+
+  <div class="quiz-card">
+    <img id="quizAksara" class="quiz-aksara">
+  </div>
+
+  <div class="quiz-options" id="quizOptions"></div>
+
+  <!-- SOUND QUIZ -->
+<audio id="quizSound" src="audio/quiz_sound.mp3" loop preload="auto"></audio>
+
+  <p id="quizFeedback" class="quiz-feedback"></p>
+  <button id="startQuizBtn">Mulai Quiz</button>
+
+  <button id="endQuizBtn" class="end-quiz-btn hidden">
+  ⛔ Akhiri Quiz
+</button>
+</section>
+
+<!-- ================= SUSUN KATA ================= -->
+<section id="susunKata" class="page susun-page section-bg bg-susun">
+  <h2 class="game-title">✍️ Susun Kata Aksara Sunda</h2>
+
+  <p class="susun-desc">
+    Ketik kata atau kalimat sederhana, lalu lihat bentuk aksara Sundanya 🎴
+  </p>
+
+  <input
+  id="susunInput"
+  type="text"
+  maxlength="20"
+  oninput="batasiInputSunda(this)"
+  placeholder="Maksimal 20 huruf"
+/>
+
+  <button id="susunBtn">Tampilkan Aksara</button>
+
+  <div id="hasilSusun" class="hasil-susun"></div>
+</section>
+
+<!-- ================= CEPOT GUIDE ================= -->
+<div id="cepotWrapper" class="cepot-wrapper">
+  <div id="cepotBubble" class="bubble">
+    Ayo, tekan kartunya ya!
+  </div>
+  <img
+    src="img/cepot.png"
+    id="cepotImg"
+    class="cepot-img"
+    alt="Cepot"
+  />
+</div>
+
+<script src="script.js"></script>
+
+<footer class="footer">
+  <p>© 2026 Aksara Sunda • Belajar sambil bermain 🌱</p>
+</footer>
+
+</body>
+</html>

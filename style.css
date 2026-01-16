@@ -1,0 +1,1157 @@
+/* =====================
+   RESET & ROOT
+===================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --brown-bold: #6b3f1d;
+  --yellow-soft: #e6b97a;
+  --brown-soft: #8a5a2b;
+  --accent: #ffe4b5;
+  --text-dark: #333;
+}
+
+/* =====================
+   BODY & HTML
+===================== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Comic Sans MS", "Poppins", sans-serif;
+  color: var(--text-dark);
+}
+
+/* =====================
+   HEADER
+===================== */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+
+  background: #6b3f1d;
+
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* =====================
+   NAVIGATION
+===================== */
+.desktop-nav a {
+  text-decoration: none;
+  margin: 0 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  padding: 6px 14px;
+  border-radius: 20px;
+}
+
+.desktop-nav a:hover {
+  background: var(--yellow-soft);
+}
+
+/* BUTTON HEADER */
+#playBtnHeader {
+  margin-left: 12px;
+  padding: 8px 18px;
+  border-radius: 24px;
+  border: none;
+
+  background: #e6b97a;
+  color: #fff;
+
+  font-family: "Baloo 2", "Comic Sans MS", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#playBtnHeader:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 14px (#ffe4b5);
+}
+
+/* =====================
+   MOBILE NAV
+===================== */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #e6b97a;
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  background: linear-gradient(
+    180deg,
+    var(--brown-soft),
+    var(--yellow-soft)
+  );
+}
+
+.mobile-nav a {
+  padding: 12px;
+  border-radius: 16px;
+  margin-bottom: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* =====================
+   HIDDEN (GLOBAL)
+===================== */
+.hidden {
+  display: none;
+}
+
+/* Judul game */
+.game-title {
+  text-align: center;
+  font-size: 1.9rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .desktop-nav {
+    display: none;
+  }
+  .menu-toggle {
+    display: block;
+  }
+
+  .cepot-wrapper {
+    width: 150px;
+    height: 150px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .bubble-game {
+    font-size: 0.8rem;
+  }
+
+  .cepot-img {
+    width: 160px;
+    max-width: 160px;
+  }
+
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr); /* MOBILE: 3 jajar */
+  }
+
+  #playBtnHeader {
+    padding: 8px 14px;
+    font-size: 0.85rem;
+  }
+
+  #cover,
+  #cards,
+  .quiz-page,
+  .susun-page {
+    background-position: top center;
+  }
+
+  #cards {
+    background-position: center center;
+    background-size: contain;
+    background-attachment: scroll;
+    /* memberi ruang supaya konten tidak nutup foto */
+    padding-top: 45vh;
+  }
+}
+
+@media (min-width: 1024px) {
+  .cepot-wrapper {
+    width: 200px;
+    right: 24px;
+    bottom: 24px;
+  }
+
+  .cepot-img {
+    width: 200px;
+    max-width: 200px;
+  }
+
+  .cepot-wrapper .bubble {
+    font-size: 1.1rem;
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cepot-wrapper {
+    width: 110px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .cepot-img {
+    width: 110px;
+    max-width: 110px;
+  }
+
+  .cepot-wrapper .bubble {
+    font-size: 0.8rem;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cepot-wrapper {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .cepot-img {
+    width: 90px;
+  }
+
+  .cepot-wrapper .bubble {
+    font-size: 0.75rem;
+    max-width: 150px;
+  }
+
+  #cepotImg {
+    width: 130px !important;
+    height: 130px !important;
+  }
+}
+
+/* CONTENT SCROLL */
+.content {
+  padding: 20px 16px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  background: transparent;
+}
+
+/* =========================
+   CARD WRAPPER
+========================= */
+.card-wrapper {
+  perspective: 1200px;
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto;
+}
+
+.aksara-page {
+  min-height: 100vh;
+  background: transparent; /* WAJIB */
+}
+
+.aksara-page .cards-container {
+  background: transparent;
+  backdrop-filter: none;
+}
+
+/* =========================
+   MAIN FLIP CARD
+========================= */
+.flip-card {
+  width: 85vw;
+  max-width: 280px;
+  aspect-ratio: 3 / 4;
+  position: relative;
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* FRONT & BACK MAIN CARD */
+.flip-card > .flip-inner > .flip-front,
+.flip-card > .flip-inner > .flip-back {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 12px 28px rgba(0,0,0,.15);
+  backface-visibility: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.flip-card .flip-back {
+  transform: rotateY(180deg);
+}
+
+/* IMAGE MAIN CARD */
+.flip-card img {
+  width: 100%;
+  height: auto;
+  max-height: 240px;
+  object-fit: contain;
+}
+
+/* LABEL */
+.label {
+  margin-top: 12px;
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* =========================
+   RARANGKEN FLIP CARD
+========================= */
+.rarangken-flip {
+  width: 120px;
+  aspect-ratio: 3 / 4;
+  perspective: 1000px;
+  cursor: pointer;
+  position: relative;
+}
+
+.rarangken-flip .flip-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease;
+  transform-style: preserve-3d;
+}
+
+.rarangken-flip.flipped .flip-inner {
+  transform: rotateY(180deg);
+}
+
+/* FRONT & BACK RARANGKEN */
+.rarangken-flip .flip-front,
+.rarangken-flip .flip-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  backface-visibility: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.rarangken-flip .flip-front {
+  background: linear-gradient(135deg, #ffe4f0, #fff0f7);
+  border: 2px solid #ffb6d5;
+}
+
+.rarangken-flip .flip-back {
+  background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+  transform: rotateY(180deg);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* IMAGE RARANGKEN */
+.rarangken-flip img {
+  width: 60%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* =========================
+   WARNA SECTION
+========================= */
+#cards {
+  min-height: 100vh;
+  padding: 100px 20px 60px;
+
+  background-image: none;     /* optional */
+  background-color: transparent;
+}
+
+#cards {
+  background: linear-gradient(
+    180deg,
+    #c96a1b 0%,     /* atas (vokal) */
+    #d07a22 30%,
+    #e2a32a 55%,    /* tengah (konsonan) */
+    #e6b73a 75%,
+    #f0c94b 100%    /* bawah (rarangken) */
+  );
+
+  background-attachment: scroll;
+}
+
+#cards > * {
+  position: relative;
+  z-index: 1;
+}
+
+#vokalContainer,
+#konsonanContainer,
+#rarangkenContainer {
+  background: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* =========================
+   ANIMASI
+========================= */
+.jump {
+  animation: jump 0.9s ease-in-out infinite;
+}
+
+@keyframes jump {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+  100% { transform: translateY(0); }
+}
+
+.press {
+  transform: scale(1.05);
+}
+
+/* CEPOT GUIDE */
+.cepot-wrapper {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 180px;
+  height: 180px;
+  min-height: 260px; /* cegah loncat saat ganti ekspresi */
+  z-index: 50;
+  pointer-events: none;
+}
+
+#cepotWrapper {
+  display: none;
+}
+
+#cepotWrapper.show {
+  display: flex;
+  animation: pop 0.3s ease;
+}
+
+#cepotImg {
+  width: 100% !important;      /* desktop */
+  height: 100% !important;
+  max-width: none !important;
+  max-height: none !important;
+  object-fit: contain !important;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+#cepotImg.happy,
+#cepotImg.sad {
+  width: 180px;
+  height: 180px;
+}
+
+/* Gambar Cepot */
+.cepot-img {
+  width: 180px;
+  height: auto;
+  max-width: 180px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+/* Bubble di atas kepala */
+.cepot-wrapper .bubble {
+  position: absolute;
+  bottom: 110%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 18px;
+  font-size: 0.9rem;
+  max-width: 220px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,.15);
+}
+
+/* Animasi muncul */
+@keyframes pop {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .cepot-img {
+    width: 70px;
+  }
+  .bubble {
+    font-size: 13px;
+  }
+  #cepotImg {
+    width: 160px;
+  }
+}
+
+/* =====================
+   COVER SCREEN
+===================== */
+#cover {
+  background-image: url("img/bg_5.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#cover::before,
+#cards::before {
+  content: none;
+}
+
+#cover > *,
+#cards > *,
+.quiz-page > *,
+.susun-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+.cover-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+section {
+  scroll-margin-top: 90px;
+}
+
+/* =====================
+   COVER CENTER
+===================== */
+/* Center vertikal & horizontal */
+#cover {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* BUTTON COVER */
+#startBtn {
+  font-family: "Baloo 2", "Comic Sans MS", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+
+  padding: 16px 36px;
+  border-radius: 40px;
+  border: none;
+  margin-top: auto;
+
+  background: linear-gradient(
+    135deg,
+    #6b3f1d,
+    #e6b97a
+  );
+
+  color: #fff;
+  cursor: pointer;
+
+  box-shadow: 0 10px 22px (#6b3f1d);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#startBtn:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 14px 28px (#6b3f1d);
+}
+
+/* UKURAN MOBILE */
+@media (max-width: 480px) {
+  #startBtn {
+    font-size: 1.1rem;
+    padding: 14px 30px;
+  }
+}
+
+/* =====================
+   GAME PAGE
+===================== */
+html {
+  scroll-behavior: smooth;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 90px 20px 40px;
+  background: transparent;
+}
+
+.game-title {
+  text-align: center;
+  font-size: 1.9rem;
+  color: #ffffff;
+  margin-bottom: 20px;
+}
+
+
+/* =====================
+   GRID KARTU LAIN
+===================== */
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* DESKTOP: 6 */
+  gap: 16px;
+  margin: 40px 0;
+  background: transparent;
+  width: 100%;
+}
+
+/* MOBILE: 3 */
+@media (max-width: 768px) {
+  .cards-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.grid-card {
+  background: white;
+  border-radius: 16px;
+  border: none;
+  padding: 10px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.12);
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+.grid-card:hover {
+  transform: scale(1.05);
+}
+
+.grid-card img {
+  width: 100%;
+  height: auto;
+}
+
+.grid-card span {
+  display: block;
+  margin-top: 6px;
+  font-weight: 700;
+}
+
+  .mini-card {
+    flex: 0 0 130px;
+    scroll-snap-align: center;
+  }
+
+.mini-card {
+  background: white;
+  border-radius: 16px;
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.mini-card img {
+  width: 100%;
+  max-height: 120px;
+  object-fit: contain;
+}
+
+.mini-card span {
+  display: block;
+  margin-top: 8px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.mini-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+
+.card-section-title {
+  margin-top: 40px;
+  font-size: 1.4rem;
+  text-align: center;
+  color: #6b3f1d;
+}
+
+/* =========================
+   QUIZ PAGE
+========================= */
+body.quiz-lock {
+  overflow: hidden;
+}
+
+#quiz {
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.quiz-page {
+  min-height: 100vh;
+  padding: 80px 20px 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+
+  background-image: url("img/bg_3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.quiz-card {
+  width: 220px;
+  height: 220px;
+  background: #ffffff;
+  border-radius: 28px;
+  box-shadow: 0 12px 30px (#6b3f1d);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  animation: popIn 0.4s ease;
+}
+
+/* Aktif setelah quiz dimulai */
+.quiz-active .quiz-card {
+  display: flex;
+}
+
+.quiz-aksara {
+  width: 150px;
+  height: auto;
+  display: none;
+}
+
+.quiz-active .quiz-aksara {
+  display: block;
+}
+
+@keyframes popIn {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.quiz-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 14px;
+  max-width: 360px;
+  width: 100%;
+}
+
+.quiz-btn {
+  padding: 14px;
+  border-radius: 18px;
+  border: none;
+
+  font-family: "Baloo 2", cursive;
+  font-size: 1.1rem;
+  font-weight: 700;
+
+  background: linear-gradient(180deg, #fff, #ffe0ec);
+  color: #6b3f1d;
+
+  box-shadow: 0 6px 16px (#e6b97a);
+  cursor: pointer;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.quiz-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px (#6b3f1d);
+}
+
+.quiz-btn:active {
+  transform: scale(0.96);
+}
+
+#startQuizBtn {
+  margin-top: 20px;
+  padding: 16px 34px;
+
+  font-family: "Baloo 2", cursive;
+  font-size: 1.25rem;
+  font-weight: 800;
+
+  border-radius: 999px;
+  border: none;
+
+  background: linear-gradient(
+    180deg,
+    #6b3f1d,
+    #e6b97a
+  );
+
+  color: white;
+  box-shadow: 0 12px 30px (#e6b97a);
+
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+#startQuizBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px (#e6b97a);
+}
+
+#startQuizBtn:active {
+  transform: scale(0.95);
+}
+
+.quiz-feedback {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #6b3f1d;
+  margin-top: 8px;
+  min-height: 24px;
+}
+
+@media (max-width: 480px) {
+  .quiz-card {
+    width: 180px;
+    height: 180px;
+  }
+
+  .quiz-aksara {
+    width: 120px;
+  }
+
+  .quiz-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+.end-quiz-btn {
+  margin-top: 10px;
+  padding: 14px 28px;
+
+  font-family: "Baloo 2", cursive;
+  font-size: 1.05rem;
+  font-weight: 700;
+
+  border-radius: 999px;
+  border: none;
+
+  background: linear-gradient(180deg, #6b3f1d, #e6b97a);
+  color: white;
+
+  box-shadow: 0 8px 20px (#e6b97a);
+  cursor: pointer;
+
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.end-quiz-btn:hover {
+  transform: translateY(-2px);
+}
+
+.end-quiz-btn:active {
+  transform: scale(0.95);
+}
+
+/* ===============================
+   HALAMAN SUSUN KATA
+================================ */
+.susun-page {
+  min-height: 100vh;
+  padding: 90px 16px 40px;
+  background-image: url("img/bg_4.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Judul */
+.susun-page .game-title {
+  font-size: 1.8rem;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Input */
+#susunInput {
+  width: 100%;
+  max-width: 420px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  border: none;
+  font-size: 1.1rem;
+  text-align: center;
+  outline: none;
+  background: #fff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+}
+
+/* Tombol */
+#susunBtn {
+  margin-top: 6px;
+  padding: 14px 26px;
+  border-radius: 40px;
+  border: none;
+  font-size: 1.1rem;
+  font-weight: bold;
+  background: linear-gradient(135deg, #c59a6d, #a4723c);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+#susunBtn:hover {
+  transform: scale(1.05);
+}
+
+/* Area hasil kartu */
+#hasilSusun {
+  margin-top: 24px;
+  padding: 16px;
+  width: 100%;
+  max-width: 600px;
+  min-height: 120px;
+  border-radius: 18px;
+  background: #fff8ef;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  box-shadow: inset 0 0 0 2px #e2c9a6;
+}
+
+/* Kartu aksara */
+.susun-card {
+  width: clamp(80px, 10vw, 120px);
+  height: 70px;
+  object-fit: contain;
+  background: #fff;
+  padding: 14px;
+  border-radius: 16px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  animation: popIn 0.25s ease;
+}
+
+/* ===============================
+   HASIL SUSUN – FINAL RAPi
+================================ */
+#hasilSusun {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 200px;
+  padding: 32px 24px;
+  background: #fff8ef;
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  box-shadow: inset 0 0 0 3px #e2c9a6;
+}
+
+/* BARIS PER KATA */
+.susun-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  gap: 22px;
+}
+
+/* WRAPPER KARTU */
+.susun-card-wrapper {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* KARTU AKSARA UTAMA */
+.susun-card {
+  width: clamp(90px, 9vw, 130px);
+  height: auto;
+  padding: 14px;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.18);
+}
+
+/* RARANGKEN */
+.susun-rarangken {
+  position: absolute;
+  top: -22px;
+  right: -16px;
+  width: clamp(42px, 4.5vw, 64px);
+  height: auto;
+  pointer-events: none;
+}
+
+/* TEKS LATIN DI BAWAH */
+.susun-text {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #6b3f1d;
+  letter-spacing: 1px;
+}
+
+/* Animasi muncul */
+@keyframes popIn {
+  from {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* BARIS PER KATA */
+#hasilSusun {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+
+.susun-card-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  display: inline-flex;
+  margin: 6px;
+  justify-content: center;
+}
+
+.susun-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: nowrap;
+}
+
+.susun-text {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #6b3f1d;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  #hasilSusun {
+    padding: 26px 16px;
+    gap: 22px;
+  }
+
+  .susun-row {
+    gap: 16px;
+  }
+
+  .susun-card {
+    width: 90px;
+  }
+}
+
+@media (max-width: 480px) {
+  #hasilSusun {
+    padding: 22px 12px;
+  }
+
+  .susun-row {
+    gap: 14px;
+  }
+
+  .susun-card {
+    width: 82px;
+  }
+
+  .susun-text {
+    font-size: 14px;
+  }
+}
+
+/* =====================
+   FOOTER
+===================== */
+.footer {
+  text-align: center;
+  padding: 20px 14px;
+  font-size: 0.9rem;
+  color: #5a3e2b;
+
+  background: linear-gradient(
+    180deg,
+    #e6b97a,
+    #6b3f1d
+  );
+}
+
+.highlight {
+  outline: 4px solid #ffd54f;
+  border-radius: 12px;
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
